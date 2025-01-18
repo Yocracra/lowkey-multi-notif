@@ -80,15 +80,18 @@ Here's an example of the configuration file:
 
 ```
 # Lowkey Configuration File
-# Set the critical battery level (in percentage)
-critical_bat=25
+# Set the critical battery levels (in percentages)
+critical_bat=5, 10, 15
+# Set the low battery levels (in percentages)
+low_bat=20, 30
 # Set the battery number to monitor
 bat=1
 ```
 
 ### Configuration Options
 
-- `critical_bat`: This sets the battery percentage at which lowkey will send a critical battery notification. In the example, it's set to 25%.
+- `critical_bat`: This sets the battery percentages at which lowkey will send critical battery notifications. In the example, it's set to 5%, 10%, and 15%.
+- `low_bat`: This sets the battery percentages at which lowkey will send low battery notifications. In the example, it's set to 20% and 30%.
 - `bat`: This specifies which battery to monitor if your system has multiple batteries. It's set to 1 in the example, which typically corresponds to the main battery.
 
 ### Editing the Configuration
@@ -100,13 +103,14 @@ To modify the configuration:
    nano ~/.config/lowkey/config
    ```
 
-2. Adjust the values as needed. For example, to change the critical battery level to 20% and monitor battery 2:
+2. Adjust the values as needed. For example, to change the critical battery levels to 10%, 15%, and 20%, and the low battery levels to 25% and 35%, and monitor battery 2:
    ```
-   critical_bat=20
-   bat=1
+   critical_bat=10, 15, 20
+   low_bat=25, 35
+   bat=2
    ```
 
 3. Save the file and exit the editor.
 
-Remember to use whole numbers for the percentage and battery number. If you're unsure about which battery number to use, you can check the available batteries in your system by looking at the contents of the `/sys/class/power_supply/` directory.
+Remember to use whole numbers for the percentages and battery number. If you're unsure about which battery number to use, you can check the available batteries in your system by looking at the contents of the `/sys/class/power_supply/` directory.
 
